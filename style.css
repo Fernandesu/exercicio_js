@@ -48,17 +48,6 @@
         margin-top: 23px;
     }
 
-    #error-message{
-        background-color: red;
-        padding: 20px 12px  77px 12px;
-        border-radius: 3px;
-        display: none ;
-        padding-left:30px;
-        color: rgb(0, 0, 0);
-        font-weight:bold;
-        font-size: 14px;
-    }
-
     h1{
         margin-left: 25px;
     }
@@ -77,4 +66,30 @@
 
     p{
         font-weight: 600;
+    }
+
+    .error-message{
+        background-color: red;
+        padding: 20px 12px  77px 12px;
+        border-radius: 3px;
+        display: none ;
+        padding-left:30px;
+        color: rgb(0, 0, 0);
+        font-weight:bold;
+        font-size: 14px;
+    }
+
+    .success-message{
+        background-color: rgb(0, 161, 0);
+        padding: 20px 12px  77px 12px;
+        border-radius: 3px;
+        display: none ;
+        padding-left:30px;
+        color: rgb(0, 0, 0);
+        font-weight:bold;
+        font-size: 14px;
+    }
+
+    #h-message{
+        display: none;
     }

@@ -4,37 +4,76 @@ const numB = document.getElementById("campoB");
 const botao = document.querySelector("button");
 const form = document.querySelector("form");
 
+const message = document.getElementById("h-message");
+
 function validaForm(){
     //console.log("teste: ")
 
-    const formEValido = parseFloat(numA.value) < parseFloat(numB.value);
+    const formEValido = parseInt(numA.value) < parseInt(numB.value);
     if(formEValido){
         return true
     } else {
         return false
     }
-}
+};
 
 form.addEventListener("submit", function(e){
     e.preventDefault();
-    const failMessage = document.getElementById("error-message")
-    const successMessage = 1;
+    
 
     let valid = validaForm();
-
+    
+    
     if( valid === true){
-
-        console.log(validaForm())
+        
+        message.classList.add("success-message");
+        message.style.display = "block";
+        message.innerHTML = `Meus parabéns, eu não tinha te explicado as exigências, mas mesmo assim você conseguiu`
+        
         numA.value = "";
         numB.value = "";
-        failMessage.style.display =  "none";
-    } else {
-        console.log(failMessage)
-        failMessage.style.display = "block";
-        failMessage.innerHTML = `O envio não deu certo, porque o segundo número( ${numB.value} ) é menor que o primeiro( ${numA.value} )`;
+    } else{
+        message.classList.remove('success-message')
+        message.classList.add("error-message");
+        message.style.display = "block";
+        message.innerHTML = `O envio não deu certo, porque o segundo número( ${numB.value} ) é menor ou igual ao primeiro( ${numA.value} )`;
+
+        numA.value = "";
+        numB.value = "";
     }
 
-})
+
+
+});
+
+numA.addEventListener("keyup", function(e){
+
+    if ((e.target.value === '')){
+        
+        message.style.display = 'block';
+    } else{
+        message.style.display = 'none';
+    }
+    console.log(e.target.value);
+
+    
+});
+
+numB.addEventListener("keyup", function(e){
+
+    if ((e.target.value === '')){
+        
+        message.style.display = 'block';
+    } else{
+        message.style.display = 'none';
+    }
+    console.log(e.target.value);
+
+    
+});
+
+
+
 
 
 

@@ -2,9 +2,14 @@ const numA = document.getElementById("campoA");
 const numB = document.getElementById("campoB");
 
 const botao = document.querySelector("button");
-const form = document.querySelector("form");
+const form = document.getElementById("form");
 
 const message = document.getElementById("h-message");
+
+
+while((numA === '')&&(numB === '')){
+    botao.disabled = true;
+}
 
 function validaForm(){
     //console.log("teste: ")
@@ -20,6 +25,7 @@ function validaForm(){
 form.addEventListener("submit", function(e){
     e.preventDefault();
     
+    console.log(e.preventDefault());
 
     let valid = validaForm();
     
@@ -48,40 +54,31 @@ form.addEventListener("submit", function(e){
 
 numA.addEventListener("keyup", function(e){
 
-    if ((e.target.value === '')){
+    if (e.target.value === ''){
         
         message.style.display = 'block';
-    } else{
+    } else {
         message.style.display = 'none';
     }
-    console.log(e.target.value);
+    //console.log(e.target.value);
 
     
 });
 
 numB.addEventListener("keyup", function(e){
 
-    if ((e.target.value === '')){
-        
+    if ((numA.value === '')){
         message.style.display = 'block';
-    } else{
+    } else if(e.target.valeu === ''){
         message.style.display = 'none';
     }
-    console.log(e.target.value);
+    //console.log(e.target.value);
 
     
 });
 
+numA.addEventListener("change", function(e){
 
-
-
-
-
-
-
-
-
-
-
-
+    console.log(e);
+});
 
